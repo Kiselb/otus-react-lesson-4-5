@@ -4,7 +4,7 @@
   "description": "lesson 4-5 homework",
   "main": "index.js",
   "scripts": {
-    "ts:check": "npx tsc -p tsconfig.json --noEmit --diagnostics",
+    "ts:check": "npx tsc -p tsconfig.json --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
