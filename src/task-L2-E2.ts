@@ -4,8 +4,8 @@
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
-type FIXME<T> = Partial<T> | undefined;
-
+//type FIXME<T> = Partial<T> | undefined;
+type FIXME<T> = React.ComponentType<T> extends {defaultProps?: infer P} ? P | undefined : never
 
 // Hint: infer
 export const getDefaultProps = <T>(

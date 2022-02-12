@@ -6,19 +6,16 @@
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
-type OrderInitial = 
-| {
-  state: "initial";
-  sum: number;
-}
-| {
-  state: "inWork";
-  sum: number;
-  workerId: number;
-}
-
 type Order =
-  OrderInitial
+  | {
+      state: "initial";
+      sum: number;
+  }
+  | {
+      state: "inWork";
+      sum: number;
+      workerId: number;
+  }
   | {
       state: "buyingSupplies";
       sum: number;
@@ -41,7 +38,7 @@ type Order =
       fullfillmentDate: Date;
     };
 
-type FIXME = OrderInitial | null;
+type FIXME = Extract<Order, {["state"]: "initial" | "inWork"}> | null;
 
 export const filterOnlyInitialAndInWorkOrder = (order: Order): FIXME => {
   if (order.state === "initial" || order.state === "inWork") {
